@@ -143,8 +143,8 @@ SPDX-License-Identifier: AGPL-3.0-only
 			</div>
 		</div>
 		<div v-if="!narrow" class="sub _gaps" style="container-type: inline-size;">
-			<XFiles :key="user.id" :user="user"/>
-			<XActivity :key="user.id" :user="user"/>
+			<!-- <XFiles :key="user.id" :user="user"/>
+			<XActivity :key="user.id" :user="user"/> -->
 		</div>
 	</div>
 </MkSpacer>
@@ -588,7 +588,7 @@ onUnmounted(() => {
 	}
 
 	&.wide {
-		display: flex;
+		//display: flex;
 		width: 100%;
 
 		> .main {
