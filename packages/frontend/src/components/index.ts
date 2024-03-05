@@ -50,7 +50,7 @@ export const components = {
 	MkLoading: MkLoading,
 	MkError: MkError,
 	MkAd: MkAd,
-	MkPageHeader: MkPageHeader,
+	//MkPageHeader: MkPageHeader,
 	MkSpacer: MkSpacer,
 	MkFooterSpacer: MkFooterSpacer,
 	MkStickyContainer: MkStickyContainer,
