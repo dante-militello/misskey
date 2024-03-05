@@ -13,7 +13,6 @@ SPDX-License-Identifier: AGPL-3.0-only
 		<div v-if="!totpLogin" class="normal-signin _gaps_m">
 			<MkInput v-model="username" :placeholder="i18n.ts.username" type="text" pattern="^[a-zA-Z0-9_]+$" :spellcheck="false" autocomplete="username webauthn" autofocus required data-cy-signin-username @update:modelValue="onUsernameChange">
 				<template #prefix>@</template>
-				<template #suffix>@{{ host }}</template>
 			</MkInput>
 			<MkInput v-if="!user || user && !user.usePasswordLessLogin" v-model="password" :placeholder="i18n.ts.password" type="password" autocomplete="current-password webauthn" :withPasswordToggle="true" required data-cy-signin-password>
 				<template #prefix><i class="ti ti-lock"></i></template>

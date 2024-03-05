@@ -22,7 +22,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 						<div class="title">
 							<MkUserName class="name" :user="user" :nowrap="true"/>
 							<div class="bottom">
-								<span class="username"><MkAcct :user="user" :detail="true"/></span>
+								<span class="username"><MkAcct :user="user" :detail="false"/></span>
 								<span v-if="user.isAdmin" :title="i18n.ts.isAdmin" style="color: var(--badge);"><i class="ti ti-shield"></i></span>
 								<span v-if="user.isLocked" :title="i18n.ts.isLocked"><i class="ti ti-lock"></i></span>
 								<span v-if="user.isBot" :title="i18n.ts.isBot"><i class="ti ti-robot"></i></span>
@@ -41,7 +41,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 					<div class="title">
 						<MkUserName :user="user" :nowrap="false" class="name"/>
 						<div class="bottom">
-							<span class="username"><MkAcct :user="user" :detail="true"/></span>
+							<span class="username"><MkAcct :user="user" :detail="false"/></span>
 							<span v-if="user.isAdmin" :title="i18n.ts.isAdmin" style="color: var(--badge);"><i class="ti ti-shield"></i></span>
 							<span v-if="user.isLocked" :title="i18n.ts.isLocked"><i class="ti ti-lock"></i></span>
 							<span v-if="user.isBot" :title="i18n.ts.isBot"><i class="ti ti-robot"></i></span>
