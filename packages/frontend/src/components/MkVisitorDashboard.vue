@@ -10,8 +10,6 @@ SPDX-License-Identifier: AGPL-3.0-only
 		<button class="_button _acrylic" :class="$style.mainMenu" @click="showMenu"><i class="ti ti-dots"></i></button>
 		<div :class="$style.mainFg">
 			<h1 :class="$style.mainTitle">
-				<!-- 背景色によってはロゴが見えなくなるのでとりあえず無効に -->
-				<!-- <img class="logo" v-if="meta.logoImageUrl" :src="meta.logoImageUrl"><span v-else class="text">{{ instanceName }}</span> -->
 				<span>{{ instanceName }}</span>
 			</h1>
 			<div :class="$style.mainAbout">
@@ -22,9 +20,8 @@ SPDX-License-Identifier: AGPL-3.0-only
 				<MkInfo warn>{{ i18n.ts.invitationRequiredToRegister }}</MkInfo>
 			</div>
 			<div class="_gaps_s" :class="$style.mainActions">
-				<MkButton :class="$style.mainAction" full rounded gradate data-cy-signup style="margin-right: 12px;" @click="signup()">{{ i18n.ts.joinThisServer }}</MkButton>
-				<MkButton :class="$style.mainAction" full rounded @click="exploreOtherServers()">{{ i18n.ts.exploreOtherServers }}</MkButton>
-				<MkButton :class="$style.mainAction" full rounded data-cy-signin @click="signin()">{{ i18n.ts.login }}</MkButton>
+				<MkButton :class="$style.mainAction" full rounded gradate data-cy-signup style="margin-right: 12px;" @click="signup()">Registrate</MkButton>
+				<MkButton :class="$style.mainAction" full rounded data-cy-signin @click="signin()">Ingresa</MkButton>
 			</div>
 		</div>
 	</div>

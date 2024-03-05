@@ -9,7 +9,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 	<XTimeline class="tl"/>
 	<div class="shape1"></div>
 	<div class="shape2"></div>
-	<img :src="misskeysvg" class="misskey"/>
+	<!-- <img :src="misskeysvg" class="misskey"/> -->
 	<div class="emojis">
 		<MkEmoji :normal="true" :noStyle="true" emoji="👍"/>
 		<MkEmoji :normal="true" :noStyle="true" emoji="❤"/>
@@ -19,15 +19,6 @@ SPDX-License-Identifier: AGPL-3.0-only
 	</div>
 	<div class="contents">
 		<MkVisitorDashboard/>
-	</div>
-	<div v-if="instances && instances.length > 0" class="federation">
-		<MarqueeText :duration="40">
-			<MkA v-for="instance in instances" :key="instance.id" :class="$style.federationInstance" :to="`/instance-info/${instance.host}`" behavior="window">
-				<!--<MkInstanceCardMini :instance="instance"/>-->
-				<img v-if="instance.iconUrl" class="icon" :src="getInstanceIcon(instance)" alt=""/>
-				<span class="name _monospace">{{ instance.host }}</span>
-			</MkA>
-		</MarqueeText>
 	</div>
 </div>
 </template>
