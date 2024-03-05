@@ -47,7 +47,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 					<span :class="[$style.item_content_text, $style.switchText]">{{ item.text }}</span>
 				</div>
 			</button>
-			<button v-else-if="item.type === 'parent'" class="_button" role="menuitem" :tabindex="i" :class="[$style.item, $style.parent, { [$style.childShowing]: childShowingItem === item }]" @mouseenter="preferClick ? null : showChildren(item, $event)" @click="!preferClick ? null : showChildren(item, $event)">
+			<button v-else-if="item.type === 'parent'" style="display:none;" class="_button" role="menuitem" :tabindex="i" :class="[$style.item, $style.parent, { [$style.childShowing]: childShowingItem === item }]" @mouseenter="preferClick ? null : showChildren(item, $event)" @click="!preferClick ? null : showChildren(item, $event)">
 				<i v-if="item.icon" class="ti-fw" :class="[$style.icon, item.icon]" style="pointer-events: none;"></i>
 				<div :class="$style.item_content">
 					<span :class="$style.item_content_text" style="pointer-events: none;">{{ item.text }}</span>
