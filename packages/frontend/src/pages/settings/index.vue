@@ -78,11 +78,6 @@ const menuDef = computed(() => [{
 		to: '/settings/emoji-picker',
 		active: currentPage.value?.route.name === 'emojiPicker',
 	}, {
-		icon: 'ti ti-cloud',
-		text: i18n.ts.drive,
-		to: '/settings/drive',
-		active: currentPage.value?.route.name === 'drive',
-	}, {
 		icon: 'ti ti-bell',
 		text: i18n.ts.notifications,
 		to: '/settings/notifications',
@@ -99,83 +94,21 @@ const menuDef = computed(() => [{
 		active: currentPage.value?.route.name === 'security',
 	}],
 }, {
-	title: i18n.ts.clientSettings,
-	items: [{
-		icon: 'ti ti-adjustments',
-		text: i18n.ts.general,
-		to: '/settings/general',
-		active: currentPage.value?.route.name === 'general',
-	}, {
-		icon: 'ti ti-palette',
-		text: i18n.ts.theme,
-		to: '/settings/theme',
-		active: currentPage.value?.route.name === 'theme',
-	}, {
-		icon: 'ti ti-menu-2',
-		text: i18n.ts.navbar,
-		to: '/settings/navbar',
-		active: currentPage.value?.route.name === 'navbar',
-	}, {
-		icon: 'ti ti-equal-double',
-		text: i18n.ts.statusbar,
-		to: '/settings/statusbar',
-		active: currentPage.value?.route.name === 'statusbar',
-	}, {
-		icon: 'ti ti-music',
-		text: i18n.ts.sounds,
-		to: '/settings/sounds',
-		active: currentPage.value?.route.name === 'sounds',
-	}, {
-		icon: 'ti ti-plug',
-		text: i18n.ts.plugins,
-		to: '/settings/plugin',
-		active: currentPage.value?.route.name === 'plugin',
-	}],
-}, {
 	title: i18n.ts.otherSettings,
-	items: [{
-		icon: 'ti ti-badges',
-		text: i18n.ts.roles,
-		to: '/settings/roles',
-		active: currentPage.value?.route.name === 'roles',
-	}, {
-		icon: 'ti ti-ban',
-		text: i18n.ts.muteAndBlock,
-		to: '/settings/mute-block',
-		active: currentPage.value?.route.name === 'mute-block',
-	}, {
-		icon: 'ti ti-api',
-		text: 'API',
-		to: '/settings/api',
-		active: currentPage.value?.route.name === 'api',
-	}, {
-		icon: 'ti ti-webhook',
-		text: 'Webhook',
-		to: '/settings/webhook',
-		active: currentPage.value?.route.name === 'webhook',
-	}, {
-		icon: 'ti ti-package',
-		text: i18n.ts.importAndExport,
-		to: '/settings/import-export',
-		active: currentPage.value?.route.name === 'import-export',
-	}, {
-		icon: 'ti ti-plane',
-		text: `${i18n.ts.accountMigration}`,
-		to: '/settings/migration',
-		active: currentPage.value?.route.name === 'migration',
-	}, {
-		icon: 'ti ti-dots',
-		text: i18n.ts.other,
-		to: '/settings/other',
-		active: currentPage.value?.route.name === 'other',
-	}],
+	items: [
+		{
+			icon: 'ti ti-ban',
+			text: i18n.ts.muteAndBlock,
+			to: '/settings/mute-block',
+			active: currentPage.value?.route.name === 'mute-block',
+		}, {
+			icon: 'ti ti-dots',
+			text: i18n.ts.other,
+			to: '/settings/other',
+			active: currentPage.value?.route.name === 'other',
+		}],
 }, {
 	items: [{
-		icon: 'ti ti-device-floppy',
-		text: i18n.ts.preferencesBackups,
-		to: '/settings/preferences-backups',
-		active: currentPage.value?.route.name === 'preferences-backups',
-	}, {
 		type: 'button',
 		icon: 'ti ti-trash',
 		text: i18n.ts.clearCache,
