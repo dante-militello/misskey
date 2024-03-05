@@ -11,11 +11,10 @@ const defaultConfig = getConfig();
 
 const { port } = yaml.load(await readFile('../../.config/default.yml', 'utf-8'));
 
-const httpUrl = `http://localhost:${port}/`;
-const websocketUrl = `ws://localhost:${port}/`;
+const httpUrl = `https://app.piberio.com:${port}/`;
+const websocketUrl = `ws://app.piberio.com:${port}/`;
 
 const devConfig = {
-	// 基本の設定は vite.config.js から引き継ぐ
 	...defaultConfig,
 	root: 'src',
 	publicDir: '../assets',
@@ -26,28 +25,28 @@ const devConfig = {
 		proxy: {
 			'/api': {
 				changeOrigin: true,
-				target: httpUrl,
+				target: 'https://app.piberio.com',
 			},
-			'/assets': httpUrl,
-			'/static-assets': httpUrl,
-			'/client-assets': httpUrl,
-			'/files': httpUrl,
-			'/twemoji': httpUrl,
-			'/fluent-emoji': httpUrl,
-			'/sw.js': httpUrl,
+			'/assets': 'https://app.piberio.com',
+			'/static-assets': 'https://app.piberio.com',
+			'/client-assets': 'https://app.piberio.com',
+			'/files': 'https://app.piberio.com',
+			'/twemoji': 'https://app.piberio.com',
+			'/fluent-emoji': 'https://app.piberio.com',
+			'/sw.js': 'https://app.piberio.com',
 			'/streaming': {
-				target: websocketUrl,
+				target: 'wss://app.piberio.com',
 				ws: true,
 			},
-			'/favicon.ico': httpUrl,
+			'/favicon.ico': 'https://app.piberio.com',
 			'/identicon': {
-				target: httpUrl,
+				target: 'https://app.piberio.com',
 				rewrite(path) {
-					return path.replace('@localhost:5173', '');
+					return path; // No es necesario reescribir el path si apunta directamente a la URL correcta
 				},
 			},
-			'/url': httpUrl,
-			'/proxy': httpUrl,
+			'/url': 'https://app.piberio.com',
+			'/proxy': 'https://app.piberio.com',
 		},
 	},
 	build: {
@@ -57,7 +56,6 @@ const devConfig = {
 			input: 'index.html',
 		},
 	},
-
 	define: {
 		...defaultConfig.define,
 		_LANGS_FULL_: JSON.stringify(Object.entries(locales)),
