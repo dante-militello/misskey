@@ -7,7 +7,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 <div v-if="meta" :class="$style.root">
 	<div :class="[$style.main, $style.panel]">
 		<img :src="instance.iconUrl || '/favicon.ico'" alt="" :class="$style.mainIcon"/>
-		<button class="_button _acrylic" :class="$style.mainMenu" @click="showMenu"><i class="ti ti-dots"></i></button>
+		<!-- <button class="_button _acrylic" :class="$style.mainMenu" @click="showMenu"><i class="ti ti-dots"></i></button> -->
 		<div :class="$style.mainFg">
 			<h1 :class="$style.mainTitle">
 				<span>{{ instanceName }}</span>
