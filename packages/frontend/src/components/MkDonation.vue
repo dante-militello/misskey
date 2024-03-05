@@ -15,16 +15,14 @@ SPDX-License-Identifier: AGPL-3.0-only
 		</svg>
 	</div>
 	<div :class="$style.main">
-		<div :class="$style.title">{{ i18n.ts.didYouLikeMisskey }}</div>
+		<div :class="$style.title">¿Te gusta Piberio?</div>
 		<div :class="$style.text">
-			<I18n :src="i18n.ts.pleaseDonate" tag="span">
-				<template #host>
-					{{ instance.name ?? host }}
-				</template>
-			</I18n>
-			<div style="margin-top: 0.2em;">
-				<MkLink target="_blank" url="https://cafecito.app/piberio/plans">{{ i18n.ts.learnMore }}</MkLink>
-			</div>
+			En Piberío dedicamos horas y horas para darte una experiencia que puedas disfrutar a fondo.
+			¡Tambien invertimos en servidores e infraestructura!
+			Y solo podemos mantenerlo gracias a tu colaboración.
+		</div>
+		<div style="margin-top: 0.2em;">
+			<MkLink target="_blank" url="https://cafecito.app/piberio/plans">Regalanos una donación y conseguí rango Donador!</MkLink>
 		</div>
 		<div class="_buttons">
 			<MkButton @click="close">{{ i18n.ts.remindMeLater }}</MkButton>
