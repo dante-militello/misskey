@@ -29,10 +29,10 @@ SPDX-License-Identifier: AGPL-3.0-only
 		<MkA v-if="$i.isAdmin || $i.isModerator" :class="$style.item" :activeClass="$style.active" to="/admin">
 			<i :class="$style.itemIcon" class="ti ti-dashboard ti-fw"></i><span :class="$style.itemText">{{ i18n.ts.controlPanel }}</span>
 		</MkA>
-		<button :class="$style.item" class="_button" @click="more">
+		<!-- <button :class="$style.item" class="_button" @click="more">
 			<i :class="$style.itemIcon" class="ti ti-grid-dots ti-fw"></i><span :class="$style.itemText">{{ i18n.ts.more }}</span>
 			<span v-if="otherMenuItemIndicated" :class="$style.itemIndicator"><i class="_indicatorCircle"></i></span>
-		</button>
+		</button> -->
 		<MkA :class="$style.item" :activeClass="$style.active" to="/settings">
 			<i :class="$style.itemIcon" class="ti ti-settings ti-fw"></i><span :class="$style.itemText">{{ i18n.ts.settings }}</span>
 		</MkA>

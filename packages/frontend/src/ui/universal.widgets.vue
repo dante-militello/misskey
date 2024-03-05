@@ -77,5 +77,6 @@ function updateWidgets(thisWidgets) {
 <style lang="scss" module>
 .edit {
 	width: 100%;
+	display:none;
 }
 </style>
