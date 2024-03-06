@@ -35,7 +35,7 @@
 	//#region Detect language & fetch translations
 	if (!localStorage.hasOwnProperty('locale')) {
 		const supportedLangs = LANGS;
-		let lang = localStorage.getItem('lang');
+		let lang = 'es-ES';
 		if (lang == null || !supportedLangs.includes(lang)) {
 			if (supportedLangs.includes(navigator.language)) {
 				lang = navigator.language;
@@ -43,7 +43,7 @@
 				lang = supportedLangs.find(x => x.split('-')[0] === navigator.language);
 
 				// Fallback
-				if (lang == null) lang = 'en-US';
+				if (lang == null) lang = 'es-ES';
 			}
 		}
 
