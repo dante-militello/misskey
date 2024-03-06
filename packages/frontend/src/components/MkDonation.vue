@@ -17,12 +17,13 @@ SPDX-License-Identifier: AGPL-3.0-only
 	<div :class="$style.main">
 		<div :class="$style.title">¿Te gusta Piberio?</div>
 		<div :class="$style.text">
-			En Piberío dedicamos horas y horas para darte una experiencia que puedas disfrutar a fondo.
-			¡Tambien invertimos en servidores e infraestructura!
-			Y solo podemos mantenerlo gracias a tu colaboración.
+			Nos dedicamos a crear una experiencia única para vos, lo que involucra costos de alojamiento y mantenimiento de nuestra plataforma. 
+			<br><br>
+			Tu apoyo es vital para que podamos continuar ofreciendo y mejorando nuestro servicio.
 		</div>
 		<div style="margin-top: 0.2em;">
 			<MkLink target="_blank" url="https://cafecito.app/piberio/plans">Regalanos una donación y conseguí rango Donador!</MkLink>
+			<br><br>
 		</div>
 		<div class="_buttons">
 			<MkButton @click="close">{{ i18n.ts.remindMeLater }}</MkButton>

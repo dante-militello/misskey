@@ -24,7 +24,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 				</MkKeyValue>
 
 				<FormSection>
-					<div class="_gaps_m">
+					<!-- <div class="_gaps_m">
 						<MkKeyValue :copy="version">
 							<template #key>Misskey</template>
 							<template #value>{{ version }}</template>
@@ -42,7 +42,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 						<MkInfo v-else warn>
 							{{ i18n.ts.sourceCodeIsNotYetProvided }}
 						</MkInfo>
-					</div>
+					</div> -->
 				</FormSection>
 
 				<FormSection>
