@@ -68,6 +68,11 @@ import { $i, openAccountMenu as openAccountMenu_ } from '@/account.js';
 import { defaultStore } from '@/store.js';
 import { i18n } from '@/i18n.js';
 import { instance } from '@/instance.js';
+import { miLocalStorage } from '@/local-storage.js';
+
+const miData = miLocalStorage.getItem('account');
+const miToken = JSON.parse(miData);
+console.log('User Token: ' + miToken.token);
 
 const iconOnly = ref(false);
 
