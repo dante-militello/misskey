@@ -7,7 +7,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 <div ref="el" :class="$style.tabs" @wheel="onTabWheel">
 	<div :class="$style.tabsInner">
 		<button
-			v-for="t in tabs" :ref="(el) => tabRefs[t.key] = (el as HTMLElement)" v-tooltip.noDelay="t.title"
+			v-for="t in localTabs" :ref="(el) => tabRefs[t.key] = (el as HTMLElement)" v-tooltip.noDelay="t.title"
 			class="_button" :class="[$style.tab, { [$style.active]: t.key != null && t.key === props.tab, [$style.animate]: defaultStore.reactiveState.animation.value }]"
 			@mousedown="(ev) => onTabMousedown(t, ev)" @click="(ev) => onTabClick(t, ev)"
 		>
@@ -54,7 +54,7 @@ export type Tab = {
 </script>
 
 <script lang="ts" setup>
-import { onMounted, onUnmounted, watch, nextTick, shallowRef } from 'vue';
+import { onMounted, ref, onUnmounted, watch, nextTick, shallowRef } from 'vue';
 import { defaultStore } from '@/store.js';
 
 const props = withDefaults(defineProps<{
@@ -73,6 +73,14 @@ const emit = defineEmits<{
 const el = shallowRef<HTMLElement | null>(null);
 const tabRefs: Record<string, HTMLElement | null> = {};
 const tabHighlightEl = shallowRef<HTMLElement | null>(null);
+
+const localTabs = ref<Tab[]>([]);
+watch(() => props.tabs, (newTabs) => {
+	localTabs.value = newTabs.filter(t => {
+		// filter to disable tabs
+		return !['ti ti-list', 'ti ti-antenna', 'ti ti-device-tv', 'ti ti-code', 'ti ti-icons', 'ti ti-player-play', 'ti ti-news', 'ti ti-paperclip', 'ti ti-mood-happy'].includes(t.icon);
+	});
+}, { immediate: true });
 
 function onTabMousedown(tab: Tab, ev: MouseEvent): void {
 	// ユーザビリティの観点からmousedown時にはonClickは呼ばない
