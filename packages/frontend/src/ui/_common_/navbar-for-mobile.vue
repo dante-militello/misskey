@@ -25,10 +25,15 @@ SPDX-License-Identifier: AGPL-3.0-only
 				</span>
 			</component>
 		</template>
-		<div :class="$style.divider"></div>
+		<!-- <div :class="$style.divider"></div> -->
 		<MkA v-if="$i.isAdmin || $i.isModerator" :class="$style.item" :activeClass="$style.active" to="/admin">
 			<i :class="$style.itemIcon" class="ti ti-dashboard ti-fw"></i><span :class="$style.itemText">{{ i18n.ts.controlPanel }}</span>
 		</MkA>
+
+		<MkA v-tooltip.noDelay.right="Hotel" :class="$style.item" :activeClass="$style.active" to="/hotel">
+			<MkSparkle><i :class="$style.itemIcon" class="ti ti-crown ti-fw"></i><span :class="$style.itemText">Hotel Piberio</span></MkSparkle>
+		</MkA>
+
 		<!-- <button :class="$style.item" class="_button" @click="more">
 			<i :class="$style.itemIcon" class="ti ti-grid-dots ti-fw"></i><span :class="$style.itemText">{{ i18n.ts.more }}</span>
 			<span v-if="otherMenuItemIndicated" :class="$style.itemIndicator"><i class="_indicatorCircle"></i></span>
@@ -57,6 +62,7 @@ import { $i, openAccountMenu as openAccountMenu_ } from '@/account.js';
 import { defaultStore } from '@/store.js';
 import { i18n } from '@/i18n.js';
 import { instance } from '@/instance.js';
+import MkSparkle from '@/components/MkSparkle.vue';
 
 const menu = toRef(defaultStore.state, 'menu');
 const otherMenuItemIndicated = computed(() => {

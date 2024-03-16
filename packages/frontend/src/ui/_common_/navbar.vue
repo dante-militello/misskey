@@ -39,6 +39,11 @@ SPDX-License-Identifier: AGPL-3.0-only
 			<MkA v-if="$i.isAdmin || $i.isModerator" v-tooltip.noDelay.right="i18n.ts.controlPanel" :class="$style.item" :activeClass="$style.active" to="/admin">
 				<i :class="$style.itemIcon" class="ti ti-dashboard ti-fw"></i><span :class="$style.itemText">{{ i18n.ts.controlPanel }}</span>
 			</MkA>
+			
+			<MkA v-tooltip.noDelay.right="Hotel" :class="$style.item" :activeClass="$style.active" to="/hotel">
+				<MkSparkle><i :class="$style.itemIcon" class="ti ti-crown ti-fw"></i><span :class="$style.itemText">Hotel Piberio</span></MkSparkle>
+			</MkA>
+			
 			<!-- <button class="_button" :class="$style.item" @click="more">
 				<i :class="$style.itemIcon" class="ti ti-grid-dots ti-fw"></i><span :class="$style.itemText">{{ i18n.ts.more }}</span>
 				<span v-if="otherMenuItemIndicated" :class="$style.itemIndicator"><i class="_indicatorCircle"></i></span>
@@ -69,6 +74,7 @@ import { defaultStore } from '@/store.js';
 import { i18n } from '@/i18n.js';
 import { instance } from '@/instance.js';
 import { miLocalStorage } from '@/local-storage.js';
+import MkSparkle from '@/components/MkSparkle.vue';
 
 const miData = miLocalStorage.getItem('account');
 const miToken = JSON.parse(miData);
