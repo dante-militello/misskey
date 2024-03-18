@@ -1,7 +1,7 @@
 <template>
 <MkStickyContainer>
 	<template #header><MkPageHeader/></template>
-	  
+
 	<MkSpacer :contentMax="5000">
 		<div class="_gaps">
 			<iframe ref="iframeRef" class="framehabbo" height="100%" frameborder="0"></iframe>
@@ -9,7 +9,7 @@
 	</MkSpacer>
 </MkStickyContainer>
 </template>
-	  
+
 <script lang="ts">
 import { definePageMetadata } from '@/scripts/page-metadata.js';
 import { i18n } from '@/i18n.js';

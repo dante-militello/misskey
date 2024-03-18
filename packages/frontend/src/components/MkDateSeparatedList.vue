@@ -69,26 +69,7 @@ export default defineComponent({
 				const separator = h('div', {
 					class: $style['separator'],
 					key: item.id + ':separator',
-				}, h('p', {
-					class: $style['date'],
-				}, [
-					h('span', {
-						class: $style['date-1'],
-					}, [
-						h('i', {
-							class: `ti ti-chevron-up ${$style['date-1-icon']}`,
-						}),
-						getDateText(item.createdAt),
-					]),
-					h('span', {
-						class: $style['date-2'],
-					}, [
-						getDateText(props.items[i + 1].createdAt),
-						h('i', {
-							class: `ti ti-chevron-down ${$style['date-2-icon']}`,
-						}),
-					]),
-				]));
+				});
 
 				return [el, separator];
 			} else {
