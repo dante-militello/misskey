@@ -1,7 +1,12 @@
+<!--
+SPDX-FileCopyrightText: syuilo and misskey-project
+SPDX-License-Identifier: AGPL-3.0-only
+-->
+
 <template>
 <MkStickyContainer>
 	<template #header><MkPageHeader/></template>
-
+	
 	<MkSpacer :contentMax="5000">
 		<div class="_gaps">
 			<iframe ref="iframeRef" class="framehabbo" height="100%" frameborder="0"></iframe>
@@ -9,87 +14,53 @@
 	</MkSpacer>
 </MkStickyContainer>
 </template>
-
-<script lang="ts">
-import { definePageMetadata } from '@/scripts/page-metadata.js';
-import { i18n } from '@/i18n.js';
-import { instance } from '@/instance.js';
 	
+<script lang="ts" setup>
+import { definePageMetadata } from '@/scripts/page-metadata.js';
+
 definePageMetadata(() => ({
 	title: 'Hotel Piberio',
 	icon: 'ti ti-ad',
 }));
-	
-const theJsonData = {
-	'id': '15',
-	'nombre': 'nuevaprueba@app.piberio.com',
-	'token': 'gC!x4kñlasdk1j23',
-	'iat': 1516239022,
-};
-	
-// Codificar a base64 sin usar Buffer
-const base64url = (str) => {
-	return btoa(unescape(encodeURIComponent(str)))
-		.replace(/\+/g, '-')
-		.replace(/\//g, '_')
-		.replace(/=/g, '');
-};
-	
-// Generar el JWT manualmente
-const generateJWT = async (payload, secretKey) => {
-	const header = {
-		alg: 'HS256',
-		typ: 'JWT',
-	};
+</script>
 
-	const encodedHeader = base64url(JSON.stringify(header));
-	const encodedPayload = base64url(JSON.stringify(payload)); // Codificar sin usar encodeURIComponent
-	const signature = base64url(
-		await window.crypto.subtle
-			.importKey(
-				'raw',
-				new TextEncoder().encode(secretKey),
-				{ name: 'HMAC', hash: { name: 'SHA-256' } },
-				false,
-				['sign'],
-			)
-			.then((key) =>
-				window.crypto.subtle.sign(
-					'HMAC',
-					key,
-					new TextEncoder().encode(`${encodedHeader}.${encodedPayload}`),
-				),
-			),
-	);
-
-	return `${encodedHeader}.${encodedPayload}.${signature}`;
-};
+<script lang="ts">
+import { miLocalStorage } from '@/local-storage.js';
 	
 export default {
 	mounted() {
-		const secretKey = '8Da%o#K4n8EXaw';
-		generateJWT(theJsonData, secretKey).then(token => {
-			console.log('JWT generado:', token);
+		const miData = miLocalStorage.getItem('account');
+		const objUsrData = JSON.parse(miData);
+		const theJsonData = {
+			'nombre': objUsrData.username + '@app.piberio.com',
+			'token': objUsrData.token,
+		};
+		console.log('User Token: ' + objUsrData.token);
+		const jsonDataString = JSON.stringify(theJsonData);
+		const encodedUriComponent = btoa(encodeURIComponent(jsonDataString));
+
+		// console.log(miData);
+		// console.log('XX_ObjectoJSon:', theJsonData);
+		// console.log('XX_ResultadoStringify:', jsonDataString);
+		// console.log('XX_Datos codificados en Base64:', encodedUriComponent);
 	
-			// Construir la URL del iframe con el JWT como parámetro
-			const iframeSrc = `https://hotel.piberio.com/auth?jwt=${token}`;
+		// Ahora construimos la URL del iframe con los datos codificados como parámetro
+		const iframeSrc = `https://hotel.piberio.com/auth?token=${encodedUriComponent}`;
 	
-			// Acceder al elemento iframe y establecer su src
-			if (this.$refs.iframeRef) {
-				this.$refs.iframeRef.src = iframeSrc;
-			} else {
-				console.error('No se encontró el elemento iframe');
-			}
-		});
+		// Acceder al elemento iframe y establecer su src
+		if (this.$refs.iframeRef) {
+			this.$refs.iframeRef.src = iframeSrc;
+		} else {
+			console.error('No se encontró el elemento iframe');
+		}
 	},
 };
 </script>
-	  
-	<style>
-	.framehabbo {
-		border: 0px solid;
-		width: 100%;
-		height: 80vh;
-	}
-	</style>
-	
+
+<style>
+.framehabbo {
+	border: 0px solid;
+	width: 100%;
+	height: 80vh;
+}
+</style>
