@@ -141,6 +141,7 @@ import { host } from '@/config.js';
 import MkPushNotificationAllowButton from '@/components/MkPushNotificationAllowButton.vue';
 import { defaultStore } from '@/store.js';
 import * as os from '@/os.js';
+import { confetti } from '@/scripts/confetti.js';
 
 const emit = defineEmits<{
 	(ev: 'closed'): void;
@@ -170,6 +171,9 @@ async function close(skip: boolean) {
 
 function setupComplete() {
 	defaultStore.set('accountSetupWizard', -1);
+	confetti({
+		duration: 1000 * 3,
+	});
 	dialog.value?.close();
 }
 
