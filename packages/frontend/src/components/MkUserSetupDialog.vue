@@ -110,13 +110,13 @@ SPDX-License-Identifier: AGPL-3.0-only
 						<div class="_gaps" style="text-align: center;">
 							<i class="ti ti-check" style="display: block; margin: auto; font-size: 3em; color: var(--accent);"></i>
 							<div style="font-size: 120%;">{{ i18n.ts._initialAccountSetting.initialAccountSettingCompleted }}</div>
-							<div>{{ i18n.tsx._initialAccountSetting.youCanContinueTutorial({ name: instance.name ?? host }) }}</div>
-							<div class="_buttonsCenter" style="margin-top: 16px;">
+							<div>⚡ Ya terminaste y estas listo para ser parte de ¡Piberio! ⚡</div>
+							<!-- <div class="_buttonsCenter" style="margin-top: 16px;">
 								<MkButton rounded primary gradate data-cy-user-setup-continue @click="launchTutorial()">{{ i18n.ts._initialAccountSetting.startTutorial }} <i class="ti ti-arrow-right"></i></MkButton>
-							</div>
+							</div> -->
 							<div class="_buttonsCenter">
-								<MkButton rounded data-cy-user-setup-back @click="page--"><i class="ti ti-arrow-left"></i> {{ i18n.ts.goBack }}</MkButton>
-								<MkButton rounded primary data-cy-user-setup-continue @click="setupComplete()">{{ i18n.ts.close }}</MkButton>
+								<MkButton rounded data-cy-user-setup-back @click="page--"><i class="ti ti-arrow-left"></i> Volver</MkButton>
+								<MkButton rounded primary data-cy-user-setup-continue @click="setupComplete()">Terminar</MkButton>
 							</div>
 						</div>
 					</MkSpacer>
