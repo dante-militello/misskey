@@ -9,11 +9,11 @@ SPDX-License-Identifier: AGPL-3.0-only
 		<MkInput v-model="searchQuery" :large="true" :autofocus="true" type="search" @enter="search">
 			<template #prefix><i class="ti ti-search"></i></template>
 		</MkInput>
-		<MkRadios v-model="searchOrigin" @update:modelValue="search()">
+		<!-- <MkRadios v-model="searchOrigin" @update:modelValue="search()">
 			<option value="combined">{{ i18n.ts.all }}</option>
 			<option value="local">{{ i18n.ts.local }}</option>
 			<option value="remote">{{ i18n.ts.remote }}</option>
-		</MkRadios>
+		</MkRadios> -->
 		<MkButton large primary gradate rounded @click="search">{{ i18n.ts.search }}</MkButton>
 	</div>
 
@@ -40,7 +40,7 @@ const router = useRouter();
 
 const key = ref('');
 const searchQuery = ref('');
-const searchOrigin = ref('combined');
+const searchOrigin = ref('local');
 const userPagination = ref();
 
 async function search() {
