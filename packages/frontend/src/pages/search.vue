@@ -42,11 +42,7 @@ const notesSearchAvailable = (($i == null && instance.policies.canSearchNotes) |
 
 const headerActions = computed(() => []);
 
-const headerTabs = computed(() => [{
-	key: 'note',
-	title: i18n.ts.notes,
-	icon: 'ti ti-pencil',
-}, {
+const headerTabs = computed(() => [, {
 	key: 'user',
 	title: i18n.ts.users,
 	icon: 'ti ti-users',

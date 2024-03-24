@@ -78,14 +78,7 @@ const localTabs = ref<Tab[]>([]);
 watch(() => props.tabs, (newTabs) => {
 	const sortedTabs = newTabs
 		.filter(t => {
-			return !['ti ti-list', 'ti ti-antenna', 'ti ti-device-tv', 'ti ti-code', 'ti ti-icons', 'ti ti-player-play', 'ti ti-news', 'ti ti-paperclip', 'ti ti-mood-happy', 'ti ti-pencil'].includes(t.icon);
-		}).sort((a, b) => {
-			if (a.key === 'user' && b.key !== 'user') {
-				return -1; // Coloca 'user' antes que cualquier otro elemento
-			} else if (a.key !== 'user' && b.key === 'user') {
-				return 1; // Coloca cualquier elemento no 'user' después de 'user'
-			}
-			return 0; // Mantiene el orden original para cualquier otro caso
+			return !['ti ti-list', 'ti ti-antenna', 'ti ti-device-tv', 'ti ti-code', 'ti ti-icons', 'ti ti-player-play', 'ti ti-news', 'ti ti-paperclip', 'ti ti-mood-happy'].includes(t.icon);
 		});
 	localTabs.value = sortedTabs;
 
