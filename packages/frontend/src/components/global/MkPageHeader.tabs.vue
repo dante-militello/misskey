@@ -76,10 +76,23 @@ const tabHighlightEl = shallowRef<HTMLElement | null>(null);
 
 const localTabs = ref<Tab[]>([]);
 watch(() => props.tabs, (newTabs) => {
-	localTabs.value = newTabs.filter(t => {
-		// filter to disable tabs
-		return !['ti ti-list', 'ti ti-antenna', 'ti ti-device-tv', 'ti ti-code', 'ti ti-icons', 'ti ti-player-play', 'ti ti-news', 'ti ti-paperclip', 'ti ti-mood-happy'].includes(t.icon);
-	});
+	const sortedTabs = newTabs
+		.filter(t => {
+			return !['ti ti-list', 'ti ti-antenna', 'ti ti-device-tv', 'ti ti-code', 'ti ti-icons', 'ti ti-player-play', 'ti ti-news', 'ti ti-paperclip', 'ti ti-mood-happy', 'ti ti-pencil'].includes(t.icon);
+		}).sort((a, b) => {
+			if (a.key === 'user' && b.key !== 'user') {
+				return -1; // Coloca 'user' antes que cualquier otro elemento
+			} else if (a.key !== 'user' && b.key === 'user') {
+				return 1; // Coloca cualquier elemento no 'user' después de 'user'
+			}
+			return 0; // Mantiene el orden original para cualquier otro caso
+		});
+	localTabs.value = sortedTabs;
+
+	// Establece el tab 'user' como el seleccionado por defecto después de reordenar
+	if (sortedTabs.length > 0 && sortedTabs[0].key === 'user') {
+		emit('update:tab', sortedTabs[0].key);
+	}
 }, { immediate: true });
 
 function onTabMousedown(tab: Tab, ev: MouseEvent): void {
