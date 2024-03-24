@@ -16,6 +16,7 @@ export function chooseFileFromPc(multiple: boolean, keepOriginal = false): Promi
 	return new Promise((res, rej) => {
 		const input = document.createElement('input');
 		input.type = 'file';
+		input.accept = 'image/*'; // solo imgs
 		input.multiple = multiple;
 		input.onchange = () => {
 			if (!input.files) return res([]);
@@ -95,14 +96,6 @@ function select(src: any, label: string | null, multiple: boolean): Promise<Miss
 			text: i18n.ts.upload,
 			icon: 'ti ti-upload',
 			action: () => chooseFileFromPc(multiple, keepOriginal.value).then(files => res(files)),
-		}, {
-			text: i18n.ts.fromDrive,
-			icon: 'ti ti-cloud',
-			action: () => chooseFileFromDrive(multiple).then(files => res(files)),
-		}, {
-			text: i18n.ts.fromUrl,
-			icon: 'ti ti-link',
-			action: () => chooseFileFromUrl().then(file => res([file])),
 		}], src);
 	});
 }
