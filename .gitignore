@@ -69,3 +69,12 @@ tsdoc-metadata.json
 
 # VSCode addon
 .favorites.json
+
+#mios
+
+data_portainer/
+initial_built/
+letsencrypt/
+packages/backend/bakbuilt/
+prod_built/
+
