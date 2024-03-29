@@ -66,71 +66,178 @@ export class EmailService {
 				to: to,
 				subject: subject,
 				text: text,
-				html: `<!doctype html>
-				<html>
-				  <head>
-					<meta name="viewport" content="width=device-width" />
-					<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-					<title>${subject}</title>
-				  </head>
-				  <body style="background-color: #eaebed; font-family: sans-serif; -webkit-font-smoothing: antialiased; font-size: 14px; line-height: 1.4; margin: 0; padding: 0; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
-					<table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; width: 100%;" class="body">
-					  <tr>
-						<td>&nbsp;</td>
-						<td class="container" style="display: block; Margin: 0 auto !important; max-width: 580px; padding: 10px; width: 580px;">
-						  <div class="header" style="padding: 20px 0;">
-							<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-							  <tr>
-								<td class="align-center" width="100%">
-								  <a href="https://app.piberio.com"><img src="https://static.piberio.com/300x300.png" height="80" alt="Piberio" style="border: none; -ms-interpolation-mode: bicubic; max-width: 100%;"></a>
-								</td>
-							  </tr>
-							</table>
-						  </div>
-						  <div class="content" style="box-sizing: border-box; display: block; Margin: 0 auto; max-width: 580px; padding: 10px;">
-							<!-- START CENTERED WHITE CONTAINER -->
-							<table role="presentation" class="main" style="background: #ffffff; border-radius: 3px; width: 100%;">
-							  <!-- START MAIN CONTENT AREA -->
-							  <tr>
-								<td class="wrapper" style="box-sizing: border-box; padding: 20px;">
-								  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-									<tr>
-									  <td>
-										<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="min-width: auto; width: auto;">
-										  <tbody>
+				html: `
+				<!DOCTYPE html>
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
+
+<head>
+	<title>${subject}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"><!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]--><!--[if !mso]><!-->
+	<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet" type="text/css"><!--<![endif]-->
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		a[x-apple-data-detectors] {
+			color: inherit !important;
+			text-decoration: inherit !important;
+		}
+
+		#MessageViewBody a {
+			color: inherit;
+			text-decoration: none;
+		}
+
+		p {
+			line-height: inherit
+		}
+
+		.desktop_hide,
+		.desktop_hide table {
+			mso-hide: all;
+			display: none;
+			max-height: 0px;
+			overflow: hidden;
+		}
+
+		.image_block img+div {
+			display: none;
+		}
+
+		@media (max-width:670px) {
+			.desktop_hide table.icons-inner {
+				display: inline-block !important;
+			}
+
+			.icons-inner {
+				text-align: center;
+			}
+
+			.icons-inner td {
+				margin: 0 auto;
+			}
+
+			.mobile_hide {
+				display: none;
+			}
+
+			.row-content {
+				width: 100% !important;
+			}
+
+			.stack .column {
+				width: 100%;
+				display: block;
+			}
+
+			.mobile_hide {
+				min-height: 0;
+				max-height: 0;
+				max-width: 0;
+				overflow: hidden;
+				font-size: 0px;
+			}
+
+			.desktop_hide,
+			.desktop_hide table {
+				display: table !important;
+				max-height: none !important;
+			}
+		}
+	</style>
+</head>
+
+<body style="background-color: #000000; margin: 0; padding: 0; -webkit-text-size-adjust: none; text-size-adjust: none;">
+	<table class="nl-container" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #000000;">
+		<tbody>
+			<tr>
+				<td>
+					<table class="row row-1" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #fcfcfc;">
+						<tbody>
+							<tr>
+								<td>
+									<table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 650px; margin: 0 auto;" width="650">
+										<tbody>
 											<tr>
-											  <td align="center">
-												<table role="presentation" border="0" cellpadding="0" cellspacing="0">
-												  <tbody>
-													<tr>
-													  <h2 style="color: #06090f; font-family: sans-serif; font-weight: 400; line-height: 1.4; margin: 0; margin-bottom: 30px; font-size: 35px; text-align: center; text-transform: capitalize;">${subject}</h2>
-													  <div>${html}</div>
-													</tr>
-												  </tbody>
-												</table>
-											  </td>
+												<td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+													<table class="image_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+														<tr>
+															<td class="pad" style="padding-bottom:15px;padding-top:15px;width:100%;padding-right:0px;padding-left:0px;">
+																<div class="alignment" align="center" style="line-height:10px">
+																	<div style="max-width: 130px;"><img src="https://static.piberio.com/300x300.png" style="display: block; height: auto; border: 0; width: 100%;" width="130" alt="your logo" title="your logo" height="auto"></div>
+																</div>
+															</td>
+														</tr>
+													</table>
+												</td>
 											</tr>
-										  </tbody>
-										</table>
-									  </td>
-									</tr>
-								  </table>
+										</tbody>
+									</table>
 								</td>
-							  </tr>
-							  <!-- END MAIN CONTENT AREA -->
-							</table>
-							<footer class="footer" style="clear: both; Margin-top: 10px; text-align: center; width: 100%;">
-							  <a href="${emailSettingUrl}" style="color: #9a9ea6; font-size: 12px; text-align: center; text-decoration: none;">${'Email setting'}</a>
-							</footer>
-							<!-- END FOOTER -->
-						  <!-- END CENTERED WHITE CONTAINER -->
-						  </div>
-						</td>
-						<td>&nbsp;</td>
-					  </tr>
+							</tr>
+						</tbody>
 					</table>
-				  </body>
-				</html>
+					<table class="row row-2" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #fcfcfc;">
+						<tbody>
+							<tr>
+								<td>
+									<table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffffff; background-color:#fff; background-position: center top; background-repeat: no-repeat; color: #000000; width: 650px; margin: 0 auto;" width="650">
+										<tbody>
+											<tr>
+                                                                                                ${html}
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="row row-3" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffffff;">
+						<tbody>
+							<tr>
+								<td>
+									<table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; background-color: #ffffff; width: 650px; margin: 0 auto;" width="650">
+										<tbody>
+											<tr>
+												<td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+													<table class="icons_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; text-align: center;">
+														<tr>
+															<td class="pad" style="vertical-align: middle; color: #1e0e4b; font-family: 'Inter', sans-serif; font-size: 15px; padding-bottom: 5px; padding-top: 5px; text-align: center;">
+																<table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+																	<tr>
+																		<td class="alignment" style="vertical-align: middle; text-align: center;"><!--[if vml]><table align="center" cellpadding="0" cellspacing="0" role="presentation" style="display:inline-block;padding-left:0px;padding-right:0px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;"><![endif]-->
+																			<!--[if !vml]><!-->
+																			<table class="icons-inner" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; display: inline-block; margin-right: -4px; padding-left: 0px; padding-right: 0px;" cellpadding="0" cellspacing="0" role="presentation"><!--<![endif]-->
+
+																			</table>
+																		</td>
+																	</tr>
+																</table>
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table><!-- End -->
+</body>
+
+</html>
 				`,
 			});
 
